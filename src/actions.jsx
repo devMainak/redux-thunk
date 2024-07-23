@@ -17,3 +17,16 @@ export const addEntry = (entry) => async (dispatch) => {
   }
 }
 
+export const fetchIncome = () => async (dispatch) => {
+  try {
+    const response = await fetch("https://finance-app-backend-student-neog.replit.app/income")
+
+    const data = await response.json()
+    if ( data) {
+      dispatch({type: "FETCH_INCOME_SUCCESS", payload: data})
+    }
+  } catch (error) {
+    console.log("Error fetching income", error)
+  }
+}
+
