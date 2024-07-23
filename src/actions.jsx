@@ -30,3 +30,15 @@ export const fetchIncome = () => async (dispatch) => {
   }
 }
 
+export const fetchExpenses = () => async (dispatch) => {
+  try {
+    const response = await fetch("https://finance-app-backend-student-neog.replit.app/expenses")
+
+    const data = await response.json()
+    if ( data) {
+      dispatch({type: "FETCH_EXPENSES_SUCCESS", payload: data})
+    }
+  } catch (error) {
+    console.log("Error fetching expenses", error)
+  }
+}
