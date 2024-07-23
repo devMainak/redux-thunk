@@ -10,6 +10,8 @@ const Savings = () => {
 
   const totalIncome = income.reduce((acc, curr) => curr.amount + acc, 0)
   const totalExpenses = expenses.reduce((acc, curr) => curr.amount + acc, 0)
+
+  const totalSavings = totalIncome - totalExpenses
   
   useEffect(() => {
     dispatch(fetchIncome)
@@ -20,7 +22,10 @@ const Savings = () => {
   }, [])
   
   return (
-    <div></div>
+    <div>
+      <h1>Savings Page</h1>
+      <h2>Savings Total: ${totalSavings}</h2>
+    </div>
   )
 }
 
